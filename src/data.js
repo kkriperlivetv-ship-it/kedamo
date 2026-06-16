@@ -7,7 +7,7 @@ export const games = [
 
 export const songs = [
   {
-    title: 'Клей',
+    title: 'По улице иду я',
     artist: 'CUPSIZE',
     cover: '/assets/avatars/CUPSIZE.jpg',
     src: '/music/cupsize-klej.mp3'
