@@ -4,12 +4,21 @@ import { GoArrowUpRight } from 'react-icons/go';
 import Plasma from './components/Plasma.jsx';
 import CardNav from './components/CardNav.jsx';
 import Player from './components/Player.jsx';
-import { games, songs, socials, galleryVideos, galleryPhotos } from './data.js';
+import { games, songs, socials, servers, galleryVideos, galleryPhotos } from './data.js';
 import './App.css';
+
+const hexToRgbStr = hex => {
+  const m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex || '');
+  if (!m) return '255, 255, 255';
+  return `${parseInt(m[1], 16)}, ${parseInt(m[2], 16)}, ${parseInt(m[3], 16)}`;
+};
 
 export default function App() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+
+  const theme = songs[currentIndex]?.theme || '#ffffff';
+  const themeRgb = hexToRgbStr(theme);
 
   const goTo = (e, id) => {
     const target = document.getElementById(id);
@@ -27,38 +36,17 @@ export default function App() {
     }
   };
 
-  const navItems = [
-    {
-      label: 'Игры',
-      bgColor: '#161616',
-      textColor: '#fff',
-      links: games.map(g => ({ label: g.name, href: '#games', ariaLabel: g.name }))
-    },
-    {
-      label: 'Музыка',
-      bgColor: '#161616',
-      textColor: '#fff',
-      links: songs.map(s => ({ label: `${s.artist} — ${s.title}`, href: '#music', ariaLabel: s.title }))
-    },
-    {
-      label: 'Контакты',
-      bgColor: '#161616',
-      textColor: '#fff',
-      links: socials.map(s => ({ label: s.name, href: s.href, ariaLabel: s.name }))
-    }
-  ];
-
   return (
-    <div className="app">
+    <div className="app" style={{ '--accent': theme, '--accent-rgb': themeRgb }}>
       <div className="bg">
-        <Plasma color="#ffffff" speed={0.7} direction="forward" scale={1.1} opacity={0.55} mouseInteractive />
+        <Plasma color={theme} speed={0.7} direction="forward" scale={1.1} opacity={0.55} mouseInteractive />
         <div className="bg__vignette" />
       </div>
 
       <CardNav
         logo="/assets/avatars/Kedamo.jpg"
         logoAlt="Kedamo"
-        items={navItems}
+        servers={servers}
         baseColor="rgba(10,10,10,0.7)"
         menuColor="#fff"
         buttonBgColor="#fff"

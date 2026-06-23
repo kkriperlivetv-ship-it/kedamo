@@ -90,6 +90,13 @@ export const Plasma = ({
 }) => {
   const containerRef = useRef(null);
   const mousePos = useRef({ x: 0, y: 0 });
+  const programRef = useRef(null);
+  const targetColorRef = useRef(color ? hexToRgb(color) : [1, 1, 1]);
+
+  // плавный переход цвета без пересоздания WebGL-контекста
+  useEffect(() => {
+    targetColorRef.current = color ? hexToRgb(color) : [1, 1, 1];
+  }, [color]);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -139,6 +146,7 @@ export const Plasma = ({
     });
 
     const mesh = new Mesh(gl, { geometry, program });
+    programRef.current = program;
 
     const handleMouseMove = e => {
       if (!mouseInteractive) return;
@@ -175,6 +183,16 @@ export const Plasma = ({
 
     const loop = t => {
       if (contextLost || !isVisible) return;
+
+      // плавно подтягиваем текущий цвет к целевому (тема трека)
+      if (useCustomColor) {
+        const cur = program.uniforms.uCustomColor.value;
+        const tgt = targetColorRef.current;
+        cur[0] += (tgt[0] - cur[0]) * 0.06;
+        cur[1] += (tgt[1] - cur[1]) * 0.06;
+        cur[2] += (tgt[2] - cur[2]) * 0.06;
+      }
+
       let timeValue = (t - t0) * 0.001;
       if (direction === 'pingpong') {
         const pingpongDuration = 10;
@@ -231,8 +249,11 @@ export const Plasma = ({
       try {
         containerEl?.removeChild(canvas);
       } catch {}
+      programRef.current = null;
     };
-  }, [color, speed, direction, scale, opacity, mouseInteractive]);
+    // color намеренно исключён: меняется плавно через uniform в loop, без пересоздания контекста
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [speed, direction, scale, opacity, mouseInteractive]);
 
   return <div ref={containerRef} className="plasma-container" />;
 };

@@ -5,36 +5,65 @@ export const games = [
   { name: 'Roblox', icon: '/assets/icons/roblox.svg', tag: 'не, я реально не гей' }
 ];
 
+// theme — оттенок (hex), под который перекрашивается сайт при выборе трека.
 export const songs = [
   {
     title: 'По улице иду я',
     artist: 'CUPSIZE',
     cover: '/assets/avatars/CUPSIZE.jpg',
-    src: '/music/cupsize-klej.mp3'
+    src: '/music/cupsize-klej.mp3',
+    theme: '#ff5d8f'
   },
   {
     title: 'SOLO',
     artist: 'elox1m',
     cover: '/assets/avatars/elox1m.jpg',
-    src: '/music/elox1m-solo.mp3'
+    src: '/music/elox1m-solo.mp3',
+    theme: '#3da9fc'
   },
   {
     title: 'Night Club',
     artist: 'FORTUNA812',
     cover: '/assets/avatars/fortuna812.jpg',
-    src: '/music/fortuna812-nightclub.mp3'
+    src: '/music/fortuna812-nightclub.mp3',
+    theme: '#a06bff'
   },
   {
     title: 'Свалка',
     artist: 'темный принц',
     cover: '/assets/avatars/tjomnyj-princ.jpg',
-    src: '/music/tjomnyj-princ-svalka.mp3'
+    src: '/music/tjomnyj-princ-svalka.mp3',
+    theme: '#7ed957'
   },
   {
     title: 'Мрак',
     artist: 'killaheelz',
     cover: '/assets/avatars/killaheelz.png',
-    src: '/music/killaheelz-mrak.mp3'
+    src: '/music/killaheelz-mrak.mp3',
+    theme: '#e0455e'
+  }
+];
+
+// Серверы в раскрывающемся меню (header).
+// href — впиши сюда инвайт-ссылку на Discord-сервер (сейчас заглушки '#').
+export const servers = [
+  {
+    name: 'Dead by Daylight RU',
+    img: '/assets/servers/1.png',
+    href: 'https://discord.gg/duRyUHfU9k',
+    desc: 'Крупный русскоязычный DBD дискорд сервер для поиска команды как для игр в паблике, так и на турнирные мероприятия'
+  },
+  {
+    name: 'Monolith',
+    img: '/assets/servers/2.png',
+    href: 'https://discord.gg/pwAcUVwZET',
+    desc: 'Терновый венец эволюции'
+  },
+  {
+    name: 'Aruku',
+    img: '/assets/servers/3.png',
+    href: 'https://discord.com/invite/aruku',
+    desc: 'Комфортное общение'
   }
 ];
 

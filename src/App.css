@@ -55,8 +55,9 @@
   border-radius: 50%;
   padding: 4px;
   background: conic-gradient(from 0deg, #fff, #555, #fff, #333, #fff);
-  box-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 45px rgba(var(--accent-rgb), 0.35);
   animation: spin 14s linear infinite;
+  transition: box-shadow 0.7s ease;
 }
 @keyframes spin {
   to {
@@ -199,14 +200,14 @@
   border-radius: 0.7rem;
   cursor: pointer;
   border: 1px solid transparent;
-  transition: background 0.25s ease, border-color 0.25s ease;
+  transition: background 0.4s ease, border-color 0.4s ease;
 }
 .song:hover {
   background: rgba(255, 255, 255, 0.05);
 }
 .song--active {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(var(--accent-rgb), 0.14);
+  border-color: rgba(var(--accent-rgb), 0.45);
 }
 .song__cover {
   position: relative;
@@ -267,9 +268,10 @@
 }
 .song__eq i {
   width: 3px;
-  background: #fff;
+  background: var(--accent);
   border-radius: 2px;
   animation: eq 0.9s ease-in-out infinite;
+  transition: background 0.5s ease;
 }
 .song__eq i:nth-child(1) { animation-delay: 0s; }
 .song__eq i:nth-child(2) { animation-delay: 0.2s; }

@@ -6,7 +6,7 @@ import './CardNav.css';
 const CardNav = ({
   logo,
   logoAlt = 'Logo',
-  items,
+  servers = [],
   className = '',
   ease = 'power3.out',
   baseColor = '#fff',
@@ -87,7 +87,7 @@ const CardNav = ({
       tlRef.current = null;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ease, items]);
+  }, [ease, servers]);
 
   useLayoutEffect(() => {
     const handleResize = () => {
@@ -166,28 +166,24 @@ const CardNav = ({
         </div>
 
         <div className="card-nav-content" aria-hidden={!isExpanded}>
-          {(items || []).slice(0, 3).map((item, idx) => (
-            <div
-              key={`${item.label}-${idx}`}
-              className="nav-card"
-              ref={setCardRef(idx)}
-              style={{ backgroundColor: item.bgColor, color: item.textColor }}
-            >
-              <div className="nav-card-label">{item.label}</div>
-              <div className="nav-card-links">
-                {item.links?.map((lnk, i) => (
-                  <a
-                    key={`${lnk.label}-${i}`}
-                    className="nav-card-link"
-                    href={lnk.href}
-                    aria-label={lnk.ariaLabel}
-                    onClick={lnk.onClick}
-                  >
-                    <GoArrowUpRight className="nav-card-link-icon" aria-hidden="true" />
-                    {lnk.label}
-                  </a>
-                ))}
+          {(servers || []).slice(0, 3).map((srv, idx) => (
+            <div key={`${srv.name}-${idx}`} className="server-card" ref={setCardRef(idx)}>
+              <div className="server-card-head">
+                <span className="server-card-img">
+                  <img src={srv.img} alt={srv.name} loading="lazy" />
+                </span>
+                <a
+                  className="server-card-name"
+                  href={srv.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={srv.name}
+                >
+                  {srv.name}
+                  <GoArrowUpRight className="server-card-name-icon" aria-hidden="true" />
+                </a>
               </div>
+              <p className="server-card-desc">{srv.desc}</p>
             </div>
           ))}
         </div>
