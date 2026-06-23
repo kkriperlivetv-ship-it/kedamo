@@ -8,39 +8,39 @@ export const games = [
 // theme — оттенок (hex), под который перекрашивается сайт при выборе трека.
 export const songs = [
   {
-    title: 'По улице иду я',
+    title: 'Клей',
     artist: 'CUPSIZE',
     cover: '/assets/avatars/CUPSIZE.jpg',
     src: '/music/cupsize-klej.mp3',
-    theme: '#ff5d8f'
+    theme: '#ffffff'
   },
   {
     title: 'SOLO',
     artist: 'elox1m',
     cover: '/assets/avatars/elox1m.jpg',
     src: '/music/elox1m-solo.mp3',
-    theme: '#3da9fc'
+    theme: '#5f3702'
   },
   {
     title: 'Night Club',
     artist: 'FORTUNA812',
     cover: '/assets/avatars/fortuna812.jpg',
     src: '/music/fortuna812-nightclub.mp3',
-    theme: '#a06bff'
+    theme: '#17af24'
   },
   {
     title: 'Свалка',
     artist: 'темный принц',
     cover: '/assets/avatars/tjomnyj-princ.jpg',
     src: '/music/tjomnyj-princ-svalka.mp3',
-    theme: '#7ed957'
+    theme: '#3f3f3e'
   },
   {
     title: 'Мрак',
     artist: 'killaheelz',
     cover: '/assets/avatars/killaheelz.png',
     src: '/music/killaheelz-mrak.mp3',
-    theme: '#e0455e'
+    theme: '#3d2801'
   }
 ];
 
