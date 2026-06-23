@@ -11,7 +11,7 @@ export const songs = [
     title: 'Клей',
     artist: 'CUPSIZE',
     cover: '/assets/avatars/CUPSIZE.jpg',
-    src: '/music/SpotiDown.App - Клей - CUPSIZE.mp3',
+    src: '/music/CUPSIZE_-_Klejj_78545160.mp3',
     theme: '#ffffff'
   },
   {
