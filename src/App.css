@@ -410,18 +410,38 @@
   gap: 1rem;
 }
 .cell {
+  position: relative;
   background: var(--card);
-  border: 1px solid var(--line);
   border-radius: 0.9rem;
-  overflow: hidden;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s ease;
 }
 .cell:hover {
   transform: translateY(-4px);
-  border-color: rgba(255, 255, 255, 0.28);
 }
+/* «начерканная» от руки белая рамка */
+.cell::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  z-index: 3;
+  pointer-events: none;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  border-radius: calc(0.9rem + 6px);
+  filter: url(#sketch-1) drop-shadow(0 0 3px rgba(255, 255, 255, 0.35));
+}
+.cell:hover::after {
+  border-color: #fff;
+}
+/* у каждой ячейки свой «почерк» и наклон */
+.cell:nth-child(1)::after { filter: url(#sketch-1) drop-shadow(0 0 3px rgba(255,255,255,0.35)); transform: rotate(-0.8deg); }
+.cell:nth-child(2)::after { filter: url(#sketch-2) drop-shadow(0 0 3px rgba(255,255,255,0.35)); transform: rotate(0.6deg); }
+.cell:nth-child(3)::after { filter: url(#sketch-3) drop-shadow(0 0 3px rgba(255,255,255,0.35)); transform: rotate(-0.5deg); }
+.cell:nth-child(4)::after { filter: url(#sketch-2) drop-shadow(0 0 3px rgba(255,255,255,0.35)); transform: rotate(0.7deg); }
+.cell:nth-child(5)::after { filter: url(#sketch-3) drop-shadow(0 0 3px rgba(255,255,255,0.35)); transform: rotate(-0.6deg); }
+.cell:nth-child(6)::after { filter: url(#sketch-1) drop-shadow(0 0 3px rgba(255,255,255,0.35)); transform: rotate(0.8deg); }
 .cell__media {
   aspect-ratio: 16 / 10;
   display: grid;
@@ -433,6 +453,7 @@
     rgba(255, 255, 255, 0.05) 12px,
     rgba(255, 255, 255, 0.05) 24px
   );
+  border-radius: 0.9rem;
   overflow: hidden;
 }
 .cell__media img,
@@ -444,12 +465,6 @@
 .cell__placeholder {
   font-size: 2rem;
   color: rgba(255, 255, 255, 0.25);
-}
-.cell__caption {
-  padding: 0.75rem 0.9rem;
-  font-size: 0.82rem;
-  color: var(--muted);
-  border-top: 1px solid var(--line);
 }
 
 /* ---------- responsive ---------- */
@@ -517,10 +532,6 @@
   }
   .grid {
     gap: 0.7rem;
-  }
-  .cell__caption {
-    font-size: 0.78rem;
-    padding: 0.6rem 0.7rem;
   }
   /* disable lift-on-hover (sticky on touch) */
   .game:hover,

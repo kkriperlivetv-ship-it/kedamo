@@ -1,8 +1,8 @@
 export const games = [
   { name: 'Dead by Daylight', icon: '/assets/icons/deadbydaylight.svg', tag: 'жесткий хоррорец(разорвет очко)' },
   { name: 'Counter-Strike 2', icon: '/assets/icons/counterstrike.svg', tag: 'просьба не начинать играть' },
-  { name: 'Valorant', icon: '/assets/icons/valorant.svg', tag: 'я не гей, отвечаю' },
-  { name: 'Roblox', icon: '/assets/icons/roblox.svg', tag: 'не, я реально не гей' }
+  { name: 'Valorant', icon: '/assets/icons/valorant.svg', tag: 'ищешь девушку?' },
+  { name: 'Roblox', icon: '/assets/icons/roblox.svg', tag: '...' }
 ];
 
 // theme — оттенок (hex), под который перекрашивается сайт при выборе трека.
@@ -77,20 +77,20 @@ export const socials = [
 // Видео-галерея. Положи файлы в public/gallery/ и впиши путь в src.
 // Пока src пустой ('') — показывается заглушка с иконкой.
 export const galleryVideos = [
-  { src: '/gallery/moment_1.mp4', caption: 'Все таки попался молодой' },
-  { src: '/gallery/moment_2.mp4', caption: 'Kedamo Oni Chan' },
-  { src: '/gallery/moment_3.mp4', caption: 'Ну нихуя он брекдансит' },
-  { src: '/gallery/moment_4.mp4', caption: 'Пиздец.mp4' },
-  { src: '/gallery/moment_5.mp4', caption: 'Он был всего лишь добрым малым' },
-  { src: '/gallery/moment_6.mp4', caption: 'Осуждаю...' }
+  { src: '/gallery/moment_1.mp4' },
+  { src: '/gallery/moment_2.mp4' },
+  { src: '/gallery/moment_3.mp4' },
+  { src: '/gallery/moment_4.mp4' },
+  { src: '/gallery/moment_5.mp4' },
+  { src: '/gallery/moment_6.mp4' }
 ];
 
 // Фото-галерея. Аналогично: положи картинки в public/gallery/ и впиши путь.
 export const galleryPhotos = [
-  { src: '/gallery/photo1.jpg', caption: 'топ 5 китайских подработок' },
-  { src: '/gallery/photo2.png', caption: 'me роблакс' },
-  { src: '/gallery/photo3.jpg', caption: 'Я и Сашка' },
-  { src: '/gallery/photo4.jpg', caption: 'ставим лайк' },
-  { src: '/gallery/photo5.jpg', caption: 'Ada Wong P100' },
-  { src: '/gallery/photo6.jpg', caption: 'Steve Harrington P100' }
+  { src: '/gallery/photo1.jpg' },
+  { src: '/gallery/photo2.jpg' },
+  { src: '/gallery/photo3.jpg' },
+  { src: '/gallery/photo4.jpg' },
+  { src: '/gallery/photo5.jpg' },
+  { src: '/gallery/photo6.jpg' }
 ];

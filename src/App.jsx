@@ -38,6 +38,24 @@ export default function App() {
 
   return (
     <div className="app" style={{ '--accent': theme, '--accent-rgb': themeRgb }}>
+      {/* SVG-фильтры для «начерканных» от руки рамок галереи */}
+      <svg aria-hidden="true" style={{ position: 'absolute', width: 0, height: 0, overflow: 'hidden' }}>
+        <defs>
+          <filter id="sketch-1" x="-20%" y="-20%" width="140%" height="140%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="3" seed="1" result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="9" xChannelSelector="R" yChannelSelector="G" />
+          </filter>
+          <filter id="sketch-2" x="-20%" y="-20%" width="140%" height="140%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" seed="11" result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="7" xChannelSelector="R" yChannelSelector="G" />
+          </filter>
+          <filter id="sketch-3" x="-20%" y="-20%" width="140%" height="140%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="4" seed="23" result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="11" xChannelSelector="R" yChannelSelector="G" />
+          </filter>
+        </defs>
+      </svg>
+
       <div className="bg">
         <Plasma color={theme} speed={0.7} direction="forward" scale={1.1} opacity={0.55} mouseInteractive />
         <div className="bg__vignette" />
@@ -172,7 +190,6 @@ export default function App() {
                       <span className="cell__placeholder"><FiVideo /></span>
                     )}
                   </div>
-                  <figcaption className="cell__caption">{v.caption}</figcaption>
                 </figure>
               ))}
             </div>
@@ -185,12 +202,11 @@ export default function App() {
                 <figure className="cell" key={`p${i}`}>
                   <div className="cell__media cell__media--photo">
                     {p.src ? (
-                      <img src={p.src} alt={p.caption} />
+                      <img src={p.src} alt="" />
                     ) : (
                       <span className="cell__placeholder"><FiImage /></span>
                     )}
                   </div>
-                  <figcaption className="cell__caption">{p.caption}</figcaption>
                 </figure>
               ))}
             </div>
