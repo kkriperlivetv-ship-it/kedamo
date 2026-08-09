@@ -36,11 +36,11 @@ export const songs = [
     theme: '#3f3f3e'
   },
   {
-    title: 'Мрак',
-    artist: 'killaheelz',
-    cover: '/assets/avatars/killaheelz.png',
-    src: '/music/killaheelz-mrak.mp3',
-    theme: '#3d2801'
+    title: 'Охота на уток',
+    artist: 'темный принц',
+    cover: '/assets/avatars/tjomnyj-prinz.jpg',
+    src: '/music/tjomnyjj_princ_ashleyrossmith_-_okhota_na_utok_81871763.mp3',
+    theme: '#c00f0f'
   }
 ];
 
